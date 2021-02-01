@@ -1,4 +1,4 @@
-require 'Gossip'
+require 'gossip'
 
 class ApplicationController < Sinatra::Base
   
@@ -15,4 +15,7 @@ class ApplicationController < Sinatra::Base
     redirect '/'
   end
 
+  get '/gossip/:id' do
+    erb :show, locals: {id: params['id'].to_i, gossips: Gossip.find(params['id'].to_i)}
+  end  
 end
