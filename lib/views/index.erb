@@ -4,6 +4,7 @@
   </head>
   <body>
     <h1>Liste des gossips from the view directory</h1>
+    <a href="http://localhost:9393/gossips/new/">Envoyer chier une personne</a>
     <% gossips.each_with_index do |j, i| %>
       <p>
       <a href="/gossips/<%= (i + 1)%>"><%= j.author %></a><br/>

@@ -3,13 +3,14 @@
     <title>The Gossip Project - Display the gossip</title>
   </head>
   <body>
-    <h1>La page du potin</h1>
+    <h1>Gossip Info</h1>
+    <a href="http://localhost:9393/gossips/edit/">Editer ce gossip</a>
     <% gossips.each do |i| %>
       <p>
       Potin n° <%=id%><br/>
       Son auteur: <%=i.author%><br/>
       Son contenu: <%=i.content%>
       </p>
-    <% end %>
+    <%end%>
   </body>
 </html>

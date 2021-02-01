@@ -35,4 +35,34 @@ class Gossip
     return gossips
   end
 
+  def self.update(id, author, content)
+    gossips = Array.new
+    CSV.read("./db/gossip.csv").each_with_index do |j, i|
+      if id.to_i == i + 1
+        gossips << [author, content]
+      else
+        gossips << Gossip.new(j[0], j[1])
+      end
+    end
+    CSV.open("./db/gossip.csv", "w") do |i|
+      gossips.each do |j|
+        i << j
+      end
+    end
+  end
+
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
