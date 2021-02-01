@@ -16,13 +16,23 @@ class Gossip
   end
 
   def self.all
-      all_gossips = []
+    all_gossips = Array.new
+    CSV.read("./db/gossip.csv").each do |i|
+      gossip_temp = Gossip.new(i[0],i[1])
+      all_gossips << gossip_temp
+    end
+    return all_gossips
+  end
 
-      CSV.read("../db/gossip.csv").each do |i|
-        gossip_temp = Gossip.new(i[0],i[1])
-        all_gossips << gossip_temp
+  def self.find(id)
+    gossips = Array.new
+    CSV.read("./db/gossip.csv").each_with_index do |j, i|
+      if (id == i + 1)
+        gossips << Gossip.new(j[0], j[1])
+        break
       end
-      return all_gossips
+    end
+    return gossips
   end
 
 end

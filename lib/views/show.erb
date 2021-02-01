@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>The Gossip Project - Display the gossip</title>
+  </head>
+  <body>
+    <h1>La page du potin</h1>
+    <% gossips.each do |i| %>
+      <p>
+      Potin n° <%=id%><br/>
+      Son auteur: <%=i.author%><br/>
+      Son contenu: <%=i.content%>
+      </p>
+    <% end %>
+  </body>
+</html>
