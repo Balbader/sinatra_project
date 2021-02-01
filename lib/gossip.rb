@@ -25,6 +25,9 @@ class Gossip
   end
 
   def self.find(id)
+    gossips = self.all
+    gossips[id.to_i]
+=begin
     gossips = Array.new
     CSV.read("./db/gossip.csv").each_with_index do |j, i|
       if (id == i + 1)
@@ -33,6 +36,7 @@ class Gossip
       end
     end
     return gossips
+=end
   end
 
   def self.update(id, new_author, new_content)
@@ -41,21 +45,6 @@ class Gossip
     gossips[id].content = new_content
     # Je vide le fichier et je le rempli avec les nouvelles valeurs
     CSV.open('./db/gossip.csv', 'w') { gossips.each { |gossip| gossip.save }}
-=begin
-    gossips = Array.new
-    CSV.read("./db/gossip.csv").each_with_index do |j, i|
-      if id == i + 1
-        gossips << [author, content]
-      else
-        gossips << Gossip.new(j[0], j[1])
-      end
-    end
-    CSV.open("./db/gossip.csv", "w") do |i|
-      gossips.each do |j|
-        i << j
-      end
-    end
-=end
   end
 
 end

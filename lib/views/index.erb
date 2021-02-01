@@ -7,7 +7,7 @@
     <a href="http://localhost:9393/gossips/new/">Envoyer chier une personne</a>
     <% gossips.each_with_index do |j, i| %>
       <p>
-      <a href="/gossips/<%= (i + 1)%>"><%= j.author %></a><br/>
+      <a href="/gossips/<%= (i)%>"><%= j.author %></a><br/>
         <%= j.content %>
       </p>
     <% end %>
