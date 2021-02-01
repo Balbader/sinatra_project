@@ -4,4 +4,5 @@ gem 'sinatra'
 gem 'rubocop'
 gem 'rspec'
 gem 'pry'
+gem 'shotgun'
 
